@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap'); */
+*{
+    font-family: 'Lato', sans-serif;
+    /* font-family: 'Playfair Display', serif; */
+    user-select: none;
+}
+
+body{
+    margin: 0; padding: 0;
+    background: #fff;
+    /* background: #EEEEEE; */
+    /* font-family: 'Lato', sans-serif; */
+}
+
+
+input[type="checkbox"] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 18px;
+  height: 18px;
+  border: 1px solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+
+  
+  display: grid;
+  place-content: center;
+}
+
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+
+  background-color: #fff;
+
+  transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked{
+  background-color: #000;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+/* input[type="checkbox"]:focus {
+  outline: max(2px, 0.15em) solid currentColor;
+  outline-offset: max(2px, 0.15em);
+} */
+
+
+:root {
+  --form-control-disabled: #959495;
+}
+
+input[type="checkbox"]:disabled {
+  --form-control-color: var(--form-control-disabled);
+
+  color: var(--form-control-disabled);
+  cursor: not-allowed;
+}
+
+
+::-webkit-scrollbar{
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track{
+    background: #e7e7e7;
+  }
+  
+  ::-webkit-scrollbar-thumb{
+    background: #c0c0c0;
+    border-radius: 20px;
+    background-clip: content-box;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover{
+    /* background: $primaryColor; */
+    background: #9b9b9b;
+  }
+
+
+
+
+  /* Basic editor styles */
+.ProseMirror > * + * {
+  margin-top: 0.75em;
+}
+.ProseMirror ul, .ProseMirror ol {
+  padding: 0 1rem;
+}
+.ProseMirror h1, .ProseMirror h2, .ProseMirror h3, .ProseMirror h4, .ProseMirror h5, .ProseMirror h6 {
+  line-height: 1.1;
+}
+.ProseMirror code {
+  background-color: rgba(97, 97, 97, 0.1);
+  color: #616161;
+}
+.ProseMirror pre {
+  background: #0d0d0d;
+  color: #fff;
+  font-family: 'JetBrainsMono', monospace;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+}
+.ProseMirror pre code {
+  color: inherit;
+  padding: 0;
+  background: none;
+  font-size: 0.8rem;
+}
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+}
+.ProseMirror blockquote {
+  padding-left: 1rem;
+  border-left: 2px solid rgba(13, 13, 13, 0.1);
+}
+.ProseMirror hr {
+  border: none;
+  border-top: 2px solid rgba(13, 13, 13, 0.1);
+  margin: 2rem 0;
+}
+
+.ProseMirror{
+  font-size: 24px;
+  line-height: 28.8px;
+  font-weight: 400;
+  color: #797575;
+}
+
+.ProseMirror-focused, .ProseMirror-focused:focus{
+  outline: none !important; border: none !important;
+}
+
+/* Placeholder (at the top) */
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: #adb5bd;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
